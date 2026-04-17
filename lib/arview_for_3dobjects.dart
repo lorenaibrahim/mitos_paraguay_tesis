@@ -46,7 +46,7 @@ class _ArviewFor3dObjectsState extends State<ArviewFor3dObjects> {
       handleRotation: true,
       handlePans: true,
       showWorldOrigin:true,
-      showFeaturePoints: true,
+      showFeaturePoints: false, //true?
       showPlanes: true,
     );
     objectManagerAR!.onInitialize();
@@ -56,34 +56,35 @@ class _ArviewFor3dObjectsState extends State<ArviewFor3dObjects> {
 
   }
   //DETECTAR PISO Y EL CLICK
-  Future<void> detectPlaneAndLetUserTap(List<ARHitTestResult> hitTapResultsList) async{
+  Future<void> detectPlaneAndLetUserTap(List<ARHitTestResult> hitTapResultsList) async
+  {
     var userHitTapResults = hitTapResultsList.firstWhere((ARHitTestResult userHitPoint)=> userHitPoint.type == ARHitTestResultType.plane);
 
-    //SI EL CLICK NO ES NULO SE CREA EL MODELO EN LA CAMARA
-    var planeARAnchor = ARPlaneAnchor(transformation: userHitTapResults.worldTransform);
-    bool? anchorAdded = await anchorManagerAR!.addAnchor(planeARAnchor);
+  //SI EL CLICK NO ES NULO... SE CREA EL MODELO EN LA CAMARA
+  var planeARAnchor = ARPlaneAnchor(
+      transformation: userHitTapResults.worldTransform);
+  bool? anchorAdded = await anchorManagerAR!.addAnchor(planeARAnchor);
 
-    //CUANDO SE AGREGA EL MODELO ESTE MISMO TOMA ESTAS CARACTERISTICAS
-    if(anchorAdded!){
-      allAnchors.add(planeARAnchor);
-      var object3DNewNode = ARNode(
-        type: NodeType.webGLB,
-        uri: widget.model3dUrl,
-        scale: vectorMath64.Vector3(0.62,0.62,0.62),
-        position: vectorMath64.Vector3(0, 0, 0),
-        rotation: vectorMath64.Vector4(1, 0, 0,0),
-      );
+  //CUANDO SE AGREGA EL MODELO ESTE MISMO TOMA ESTAS CARACTERISTICAS
+  if(anchorAdded!){
+    allAnchors.add(planeARAnchor);
+    var object3DNewNode = ARNode(
+      type: NodeType.webGLB,
+      uri: widget.model3dUrl,
+      scale: vectorMath64.Vector3(0.62,0.62,0.62),
+      position: vectorMath64.Vector3(0, 0, 0),
+      rotation: vectorMath64.Vector4(1, 0, 0,0),
+    );
 
-      //agregar el node al anchor
-      bool? addARNodeToAnchor = await objectManagerAR!.addNode(object3DNewNode, planeAnchor: planeARAnchor);
-      if( addARNodeToAnchor!){
-        allNodesList.add(object3DNewNode);
-      }
-      else{
-        sessionManagerAR!.onError("Error.");
-      }
+    //agregar el node al anchor
+    bool? addARNodeToAnchor = await objectManagerAR!.addNode(object3DNewNode, planeAnchor: planeARAnchor);
+    if( addARNodeToAnchor!){
+      allNodesList.add(object3DNewNode);
     }
-
+    else{
+      sessionManagerAR!.onError("Error.");
+    }
+  }
   }
 
   //Funcion para borrar objeto 3d de la camara
@@ -102,7 +103,7 @@ class _ArviewFor3dObjectsState extends State<ArviewFor3dObjects> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title:Text('${widget.name} 3D Model'),
+          title:Text('${widget.name} Modelo 3D'),
           centerTitle: true,
         ),
         body: Stack(

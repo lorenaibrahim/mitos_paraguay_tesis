@@ -1,6 +1,9 @@
 import 'package:mitos_paraguay/arview_for_3dobjects.dart';
 import 'package:flutter/material.dart';
 
+import 'informacion.dart';
+
+
 class HomeScreen extends StatefulWidget{
   const HomeScreen({super.key});
 
@@ -15,51 +18,51 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, dynamic>> models3dList=[
     //MITO 1
     {
-      "model3dUrl": "",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/tauykerana.png",
-      "name":"Tau y Kerana",
+      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/tauykerana.glb",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/tauykerana.jpg",
+      "name":"Taú y Kerana",
     },
     //MITO 2
     {
     "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/monaisincolor.glb",
-    "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images//monai.png",
-    "name":"Moñai",
+    "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/monai.jpg",
+    "name":"Moñái",
   },
    // MITO 3
   {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/LUISONsincolor.glb",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images//luison.png",
-      "name":"Luison",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/luison.jpg",
+      "name":"Luisón",
     },
     //MITO 3
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d//aoao.glb",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images//AOAO.png",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/aoao.jpg",
       "name":"Ao Ao",
     },
     //MITO 4
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/tejujaguasincolor.glb",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/tejujagua.png",
-      "name":"Teju Jagua",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/tejujagua.jpg",
+      "name":"Teju Jaguá",
     },
     //MITO 5
     {
-      "model3dUrl": "",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/mboitui.png",
-      "name":"Mboi Tui",
+      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/mboitui.glb",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/mboitui.jpg",
+      "name":"Mbói Tu’i",
     },
     //MITO 6
     {
-      "model3dUrl": "",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/Yasy_Yatere.png",
-      "name":"Jasy Jatere",
+      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/jasyjatere.glb",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/jasyjatere.jpg",
+      "name":"Jasy Jateré",
     },
     //MITO 7
     {
-      "model3dUrl": "",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/Kurupi.png",
-      "name":"Kurupi",
+      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/kurupi.glb",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/kurupi.jpg",
+      "name":"Kurupí",
     },
 
   ];
@@ -67,12 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(179, 255, 151, 0.5019607843137255),
+        backgroundColor: const Color.fromRGBO(0, 0, 50, 0.9),
         title: const Text(
-            "Mitos de Yaguaron",
+            "Mitos de Yaguarón",
             style: TextStyle(
               height: 5,
-              color: Color.fromRGBO(41, 82, 38, 0.8),
+              color: Color.fromRGBO(179, 255, 151, 0.8),
               letterSpacing: 3,
               fontWeight: FontWeight.bold,
               fontSize: 27,
@@ -82,24 +85,23 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body:SafeArea(child: Container(
 
-        color: Color.fromRGBO(75, 87, 63, 0.9019607843137255),
+        color: const Color.fromRGBO(204, 255, 204, 0.4),
         padding: const EdgeInsets.all(21),
         child: Column(
           children: [
             Container(
               width: double.infinity,
               height:253,
+
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(19),
                   border: Border.all(
-                    color: Color.fromRGBO(41, 82, 38, 0.9), // Sets the border color to blue
+                    color: const Color.fromRGBO(0, 240, 0, 0.7), // Sets the border color to blue
                     width: 5.0,
                   ),
                   image: const DecorationImage(
-                    //
-                    //CAMBIAR FOTO PARA UNA IMAGEN LOCAL vvv
-                    //
-                    image: NetworkImage("https://www.abc.com.py/resizer/v2/6XWERAYPDBG37LDY5MDEBTW5FM.jpg?auth=62ef20731a6ec3264685d03e46992d071623d02a7bd1bec930b0d20b806db324&width=770&smart=true"),
+
+                    image: NetworkImage("https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/mitos1.jpg"),
                     fit: BoxFit.cover,
                   )
               ),
@@ -110,14 +112,13 @@ class _HomeScreenState extends State<HomeScreen> {
               //ARREGLAR EL ON TAP
               child: InkWell(
                   borderRadius: BorderRadius.circular(19), // Matches your container's border
-                  onTap: () {
-                    //Navigator.push(
-                      //context,
-                      //MaterialPageRoute(builder: (context) => informacion.dart()),
-                    //);
-                  },
-                  //alignment: Alignment.bottomCenter,
-                  child: Padding(
+                   onTap: () {
+                     Navigator.push(
+                       context,
+                        MaterialPageRoute(builder: (context) => const Informacion()),
+                      );
+                   },
+                    child: const Padding(
                     padding: EdgeInsets.only(bottom: 16, top: 200, left: 12),
                     child: Text(
 
@@ -142,12 +143,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSpacing:9,
                     children:models3dList.map((each3dItem){
                       return Card(
-                        color: Color.fromRGBO(151, 205, 17, 10),
+                        color: const Color.fromRGBO(0, 200, 0, 0.8),
                           elevation: 0,
                           child:Container(
                               decoration: BoxDecoration(
                                   border: Border.all(
-                                    color: Color.fromRGBO(41, 82, 38, 0.8), // Sets the border color to blue
+                                    color: const Color.fromRGBO(0, 0, 102, 0.8), // Sets the border color to blue
                                     width: 3.0,
                                   ),
                                   borderRadius: BorderRadius.circular(19),
@@ -198,7 +199,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     }).toList()
                 )
             )
-          ],
+            ],
         ),
       ),
       ),
