@@ -16,53 +16,54 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
   List<Map<String, dynamic>> models3dList=[
-    //MITO 1
+    //PADRES
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/tauykerana.glb",
       "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/tauykerana.jpg",
       "name":"Taú y Kerana",
     },
-    //MITO 2
-    {
-    "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/monaisincolor.glb",
-    "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/monai.jpg",
-    "name":"Moñái",
-  },
-   // MITO 3
-  {
-      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/LUISONsincolor.glb",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/luison.jpg",
-      "name":"Luisón",
-    },
-    //MITO 3
-    {
-      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d//aoao.glb",
-      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/aoao.jpg",
-      "name":"Ao Ao",
-    },
-    //MITO 4
+    //Hijo 1
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/tejujaguasincolor.glb",
       "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/tejujagua.jpg",
       "name":"Teju Jaguá",
     },
-    //MITO 5
+  //Hijo 2
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/mboitui.glb",
       "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/mboitui.jpg",
       "name":"Mbói Tu’i",
     },
-    //MITO 6
+//Hijo 3
+
+    {
+    "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/monaisincolor.glb",
+    "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/monai.jpg",
+    "name":"Moñái",
+  },
+//Hijo 4
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/jasyjatere.glb",
       "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/jasyjatere.jpg",
       "name":"Jasy Jateré",
     },
-    //MITO 7
+    //Hijo 5
     {
       "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/kurupi.glb",
       "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/kurupi.jpg",
       "name":"Kurupí",
+    },
+//Hijo 6
+    {
+      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d//aoao.glb",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/aoao.jpg",
+      "name":"Ao Ao",
+    },
+// Hijo 7
+    {
+      "model3dUrl": "https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/models3d/LUISONsincolor.glb",
+      "photoUrl":"https://lkrqrmogealqcljivxpu.supabase.co/storage/v1/object/public/images/luison.jpg",
+      "name":"Luisón",
     },
 
   ];
@@ -108,8 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 //
             //
-              //
-              //ARREGLAR EL ON TAP
+
               child: InkWell(
                   borderRadius: BorderRadius.circular(19), // Matches your container's border
                    onTap: () {
@@ -122,12 +122,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: EdgeInsets.only(bottom: 16, top: 200, left: 12),
                     child: Text(
 
-                      "Haga click para aprender mas.",
+                      "Haga click para aprender mas!",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        letterSpacing: 2,
+                        letterSpacing: 1,
                       ),
                     ),
                   )
@@ -141,62 +141,94 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisCount:2,
                     crossAxisSpacing:9,
                     mainAxisSpacing:9,
-                    children:models3dList.map((each3dItem){
+                      children:
+                    models3dList.map((each3dItem){
                       return Card(
                         color: const Color.fromRGBO(0, 200, 0, 0.8),
-                          elevation: 0,
-                          child:Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: const Color.fromRGBO(0, 0, 102, 0.8), // Sets the border color to blue
-                                    width: 3.0,
+                        elevation: 0,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: const Color.fromRGBO(0, 0, 102, 0.8),
+                              width: 3.0,
+                            ),
+                            borderRadius: BorderRadius.circular(19),
+                            image: DecorationImage(
+                              image: NetworkImage(each3dItem["photoUrl"]),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+
+                              // NAME OF THE MYTH
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(vertical: 8),
+                                decoration: BoxDecoration(
+                                  color: Colors.black.withOpacity(0.6),
+                                  borderRadius: const BorderRadius.only(
+                                    topLeft: Radius.circular(16),
+                                    topRight: Radius.circular(16),
                                   ),
-                                  borderRadius: BorderRadius.circular(19),
-                                  image: DecorationImage(
-                                    image: NetworkImage(each3dItem["photoUrl"]),
-                                    fit:BoxFit.cover,
-                                  )
+                                ),
+                                child: Text(
+                                  each3dItem["name"],
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                    letterSpacing: 1,
+                                  ),
+                                ),
                               ),
-                              child: Transform.translate(
-                                  offset: const Offset(0,60),
-                                  child:Padding(
-                                      padding: const EdgeInsets.all(9),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          SizedBox(
-                                              width:50,
 
-                                              child:Center(
-                                                  child: ElevatedButton(
-                                                      onPressed: (){
-
-                                                        Navigator.push(context, MaterialPageRoute(builder: (c)=> ArviewFor3dObjects(
-                                                            name: each3dItem["name"],
-                                                            model3dUrl: each3dItem["model3dUrl"])));
-                                                      },
-                                                      style: ElevatedButton.styleFrom(
-                                                        padding: const EdgeInsets.all(0),
-
-                                                        backgroundColor: Colors.white,
-                                                        shape: RoundedRectangleBorder(
-                                                          borderRadius: BorderRadius.circular(17),
-                                                        ),
-                                                      ),
-                                                      child: const Icon(
-                                                        Icons.phone_android_sharp,
-                                                        color: Colors.black,
-                                                      ))
-                                              )
-
-                                          )
-                                        ],
-                                      )
-                                  )
-                              )
-                          )
+                              Padding(
+                                padding: const EdgeInsets.all(9),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      width: 50,
+                                      child: Center(
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (c) => ArviewFor3dObjects(
+                                                  name: each3dItem["name"],
+                                                  model3dUrl: each3dItem["model3dUrl"],
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            padding: const EdgeInsets.all(0),
+                                            backgroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(17),
+                                            ),
+                                          ),
+                                          child: const Icon(
+                                            Icons.phone_android_sharp,
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
                       );
-                    }).toList()
+                    }).toList(),
+
                 )
             )
             ],
