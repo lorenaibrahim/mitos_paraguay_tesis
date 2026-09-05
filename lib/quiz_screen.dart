@@ -109,7 +109,8 @@ class _QuizScreenState extends State<QuizScreen>{
             )
                 : RectangularButton(
               onPressed:
-              selectedAnswerIndex != null ? goToNextQuestion : null,
+
+                selectedAnswerIndex != null ? goToNextQuestion : null,
               label: 'Próximo',
             ),
           ],

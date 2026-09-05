@@ -1,6 +1,5 @@
 import 'package:mitos_paraguay/arview_for_3dobjects.dart';
 import 'package:flutter/material.dart';
-
 import 'informacion.dart';
 
 
